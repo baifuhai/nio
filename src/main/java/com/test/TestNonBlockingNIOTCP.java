@@ -12,8 +12,12 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
-/** 
- * TCP
+/**
+ * SocketChannel
+ * 一个连接到 TCP 网络套接字的通道
+ *
+ * ServerSocketChannel
+ * 一个可以监听新进来的 TCP 连接的通道，就像标准 IO 中的 ServerSocket 一样
  */
 public class TestNonBlockingNIOTCP {
 	

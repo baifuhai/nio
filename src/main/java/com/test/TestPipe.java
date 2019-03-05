@@ -6,6 +6,13 @@ import java.nio.channels.Pipe;
 
 import org.junit.Test;
 
+/**
+ * 管道（Pipe）
+ *
+ * 管道是2个线程之间的单向数据连接。
+ * Pipe 有一个 source 通道和一个 sink 通道。
+ * 数据会被写到 sink 通道，从 source 通道读取。
+ */
 public class TestPipe {
 
 	@Test

@@ -13,7 +13,8 @@ import java.util.Scanner;
 import org.junit.Test;
 
 /**
- * UDP
+ * DatagramChannel
+ * 一个能收发 UDP 包的通道
  */
 public class TestNonBlockingNIOUDP {
 	

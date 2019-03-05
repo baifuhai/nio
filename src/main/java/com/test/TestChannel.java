@@ -17,7 +17,8 @@ import java.nio.file.StandardOpenOption;
 
 /**
  * 一、通道（Channel）
- * 		用于源节点与目标节点的连接，负责缓冲区中数据的传输。Channel 本身不存储数据，因此需要配合缓冲区进行传输。
+ * 		用于源节点与目标节点的连接，负责缓冲区中数据的传输。
+ * 		Channel 本身不存储数据，需要配合缓冲区进行传输。
  *
  * 二、通道的主要实现类
  * 		java.nio.channels.Channel 接口

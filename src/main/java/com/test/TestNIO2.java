@@ -16,11 +16,19 @@ import java.nio.file.attribute.DosFileAttributeView;
 
 import org.junit.Test;
 
+/**
+ * NIO.2（Path、Paths、Files）
+ * 随着 JDK 7 的发布，Java 对 NIO 进行了极大的扩展，增强了对文件处理和文件系统特性的支持，
+ * 以至于我们称他们为 NIO.2。
+ */
 public class TestNIO2 {
 
 	/**
+	 * java.nio.file.Path 接口代表一个平台无关的平台路径，描述了目录结构中文件的位置。
+	 *
 	 * Paths 提供的 get() 方法用来获取 Path 对象：
 	 *		Path get(String first, String... more) : 用于将多个字符串串连成路径
+	 *
 	 * Path 常用方法：
 	 *		boolean endsWith(String path) : 判断是否以 path 路径结束
 	 *		boolean startsWith(String path) : 判断是否以 path 路径开始
@@ -64,6 +72,8 @@ public class TestNIO2 {
 	}
 
 	/**
+	 * java.nio.file.Files 用于操作文件或目录的工具类。
+	 *
 	 * Files 常用方法：
 	 *		Path copy(Path src, Path dest, CopyOption... how) : 文件的复制
 	 *		Path createDirectory(Path path, FileAttribute<?>... attr) : 创建一个目录
@@ -110,7 +120,7 @@ public class TestNIO2 {
 	 *		boolean isReadable(Path path) : 判断文件是否可读
 	 *		boolean isWritable(Path path) : 判断文件是否可写
 	 *		boolean isExecutable(Path path) : 判断是否是可执行文件
-	 *		<A extends BasicFileAttributes> A readAttributes(Path path,Class<A> type, LinkOption... options) : 获取与 path 指定的文件相关联的属性
+	 *		<A extends BasicFileAttributes> A readAttributes(Path path, Class<A> type, LinkOption... options) : 获取与 path 指定的文件相关联的属性
 	 */
 	@Test
 	public void test06() throws IOException {
@@ -126,10 +136,10 @@ public class TestNIO2 {
 	}
 
 	/**
-	 * Files常用方法：用于操作内容
+	 * Files 常用方法：用于操作内容
 	 *		SeekableByteChannel newByteChannel(Path path, OpenOption... how) : 获取与指定文件的连接，how 指定打开方式
 	 *		DirectoryStream newDirectoryStream(Path path) : 打开 path 指定的目录
-	 *		InputStream newInputStream(Path path, OpenOption... how):获取 InputStream 对象
+	 *		InputStream newInputStream(Path path, OpenOption... how) : 获取 InputStream 对象
 	 *		OutputStream newOutputStream(Path path, OpenOption... how) : 获取 OutputStream 对象
 	 */
 	@Test
@@ -148,7 +158,14 @@ public class TestNIO2 {
 		}
 	}
 
-	//自动资源管理：自动关闭实现 AutoCloseable 接口的资源
+	/**
+	 * 自动资源管理（Automatic Resource Management, ARM）
+	 * Java 7 增加的新特性，能自动关闭文件。
+	 *
+	 * 1.try 语句中声明的资源被隐式声明为 final，资源的作用局限于带资源的 try 语句
+	 * 2.可以在一条 try 语句中管理多个资源，每个资源以“;” 隔开。
+	 * 3.需要关闭的资源，必须实现了 AutoCloseable 接口或其子接口 Closeable
+	 */
 	@Test
 	public void test08() {
 		try
