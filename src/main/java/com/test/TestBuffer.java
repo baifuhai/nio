@@ -106,6 +106,11 @@ public class TestBuffer {
 		System.out.println(buf.capacity());//1024
 		
 		System.out.println((char) buf.get());//a
+		System.out.println((char) buf.get());//b
+		System.out.println((char) buf.get());//c
+		System.out.println((char) buf.get());//d
+		System.out.println((char) buf.get());//e
+		System.out.println((char) buf.get());//unknown
 	}
 
 	@Test
